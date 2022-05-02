@@ -1,6 +1,9 @@
 const express = require('express');
 const {animals} = require('./data/animals');
 
+// set port for Heroku, if available, or 3001 by default
+const PORT = process.env.PORT || 3001;
+
 const app = express();
 
 function filterByQuery(query, animalsArray) {
