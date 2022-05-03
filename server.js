@@ -15,6 +15,9 @@ app.use(express.urlencoded({extended: true}));
 // parse incoming JSON data
 app.use(express.json());
 
+// make everything in 'public' available over HTTP
+app.use(express.static('public'));
+
 function filterByQuery(query, animalsArray) {
 
     let personalityTraitsArray =[];
@@ -138,6 +141,26 @@ app.post('/api/animals', (req, res) => {
         res.json(req.body);
     }
    
+});
+
+// serving the index.html page
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// serving the animals.html page
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+// serving the zookeeper.html page
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+// wildcard html route to serve index.html by default
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 app.listen(PORT, () => {

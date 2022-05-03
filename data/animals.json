@@ -126,6 +126,16 @@
         "hungry"
       ],
       "id": "12"
+    },
+    {
+      "name": "Harvey ",
+      "species": "rabbit",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "loving",
+        "goofy"
+      ],
+      "id": "13"
     }
   ]
 }
